@@ -1,5 +1,8 @@
+const { EleventyHtmlBasePlugin } = require('@11ty/eleventy');
+
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets');
+    eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
     // === Custom collections ===
     eleventyConfig.addCollection('tagsList', function (collectionApi) {
