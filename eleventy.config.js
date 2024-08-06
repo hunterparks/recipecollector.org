@@ -65,5 +65,6 @@ module.exports = function (eleventyConfig) {
             layouts: '_layouts',
             output: 'docs',
         },
+        pathPrefix: '/recipecollector-org/'
     };
 };
