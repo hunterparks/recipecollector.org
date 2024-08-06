@@ -1,0 +1,13 @@
+---
+layout: base
+pagination:
+  data: authors
+  size: 1
+  alias: author
+permalink: "author/{{ author.name | slugify }}/"
+---
+
+<img src="/assets/img/icons/{{ author.name | slugify }}.png" alt="{{ author.name | slugify }}" />
+<h2>
+    {{ author.name }}
+</h2>

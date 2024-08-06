@@ -1,0 +1,64 @@
+---
+layout: base
+---
+<div class="recipe">
+    <p class="byline">
+        By
+        <a href="#" class="author"> {{ author | authorName }} </a>
+        {% set tag =  tags | firstRealTag %}
+        {% if tag %}
+            {% if tag !== "recipe" %}
+                in
+                <a href="" class="category"> {{ tag }} </a>
+            {% endif %}
+        {% endif %}
+        &ndash; {{ date | date }}
+    </p>
+    <h2>{{ name }}</h2>
+    <p class="excerpt">{{ excerpt }}</p>
+    {% if image %}
+        <img src="/assets/img/recipes/{{ image }}" alt="{{ slug }}" />
+    {% endif %}
+    <p>
+        <b>Prep</b>: {{ prepTime | pluralizeMinutes }} |
+        <b>Total</b>: {{ totalTime | pluralizeMinutes }} |
+        <b>Yield</b>: {{ yield }}
+    </p>
+    <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+        {%- for ingredient in ingredients -%}
+            <li>{{ ingredient }}</li>
+        {%- endfor -%}
+        </ul>
+    </div>
+    <div class="directions">
+        <h3>Directions</h3>
+        <ol>
+        {%- for direction in directions -%}
+            <li>{{ direction }}</li>
+        {%- endfor -%}
+        </ol>
+    </div>
+    {% if notes %}
+        <div class="notes">
+            <h3>Notes</h3>
+            <ul>
+            {%- for note in notes -%}
+                <li>{{ note }}</li>
+            {%- endfor -%}
+            </ul>
+        </div>
+    {% endif %}
+    <div>
+        <i>
+            Source:
+            <span class="source">
+                <a href="{{ source }}" target="_blank">
+                    {{ source }}
+                </a>
+            </span>
+        </i>
+    </div>
+    {% include "partials/_paginate.njk" %}
+</div>

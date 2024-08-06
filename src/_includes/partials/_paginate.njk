@@ -1,0 +1,21 @@
+{% set previousRecipe = collections.recipe | getPreviousCollectionItem(recipe) %}
+{% set nextRecipe = collections.recipe | getNextCollectionItem(recipe) %}
+
+<div class="paginate">
+    {% if previousRecipe %}
+    <div class="item">
+        <p>Previous</p>
+        <a href="{{ previousRecipe.url }}">
+            {{ previousRecipe.data.name }}
+        </a>
+    </div>
+    {% endif %}
+    {% if nextRecipe %}
+    <div class="item">
+        <p>Next</p>
+        <a href="{{ nextRecipe.url }}">
+            {{ nextRecipe.data.name }}
+        </a>
+    </div>
+    {% endif %}
+</div>

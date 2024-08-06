@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% if name %}
+            <title>{{ name }}</title>
+        {% elif title %}
+            <title>Recipe Collector - {{ title }}</title>
+        {% else %}
+            <title>Recipe Collector</title>
+        {% endif %}
+        <link rel="stylesheet" href="{{ '/assets/css/reset.css' | url }}" />
+        <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}" />
+    </head>
+    <body>
+        <header>
+            {% include "partials/_header.html" %}
+        </header>
+        <main>
+            {{ content | safe }}
+        </main>
+        <footer>
+            {% include "partials/_footer.html" %}
+        </footer>
+    </body>
+</html>

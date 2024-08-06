@@ -1,0 +1,39 @@
+---
+layout: base
+---
+
+<div class="recipe-cards">
+    {%- for recipe in collections.recipe reversed -%}
+    <div class="card{% if recipe.data.featured %} featured{% endif%}">
+        <a href="{{ recipe.url }}" style="flex-grow: 1">
+            {% if recipe.data.image != "" %}
+            <div class="card-image-wrapper">
+                <img
+                    class="card-image"
+                    src="/assets/img/recipes/{{ recipe.data.image }}"
+                    alt="{{ recipe.data.slug }}"
+                />
+            </div>
+            {% endif %}
+            <div class="card-body">
+                <!-- TAG -->
+                <h4 class="body-name">{{ recipe.data.name }}</h4>
+                <p class="body-excerpt">{{ recipe.data.excerpt }}</p>
+            </div>
+            <div class="card-footer">
+                <span class="footer-read-more"> Read More </span>
+                <a
+                    class="footer-author-link"
+                    href="/author/{{ recipe.data.author }}"
+                >
+                    <img
+                        class="author-link-image"
+                        src="/assets/img/icons/{{ recipe.data.author }}.png"
+                        alt="{{ recipe.data.author }}"
+                    />
+                </a>
+            </div>
+        </a>
+    </div>
+    {%- endfor -%}
+</div>
