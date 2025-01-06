@@ -1,6 +1,12 @@
 ---
 layout: base
 ---
+{% if pdf %}
+    <p>
+        A pdf of this recipe is available
+        <a href="/assets/pdf/{{ pdf }}" style="font-weight: bold;" target="_blank">here</a>.
+    </p>
+{% else %}
 <div class="recipe">
     <p class="byline">
         By
@@ -62,3 +68,4 @@ layout: base
     </div>
     {% include "partials/_paginate.njk" %}
 </div>
+{% endif %}
