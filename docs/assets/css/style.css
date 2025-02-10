@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
 }
 
-body > * {
+body>* {
     padding-inline: var(--inline-padding);
 }
 
@@ -33,12 +33,12 @@ header nav {
     gap: 1.5rem;
 }
 
-header nav > * {
+header nav>* {
     font-weight: 600;
     padding: 0.5rem 0.75rem;
 }
 
-header nav > *:hover {
+header nav>*:hover {
     color: gray;
 }
 
@@ -76,15 +76,35 @@ header nav .popover-container #tagslist-popover div > *:hover {
 */
 
 main .recipe-cards {
+    --grid-cols: 1;
     display: grid;
     gap: var(--inline-padding);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+@media only screen and (min-width:512px) {
+    main .recipe-cards {
+        --grid-cols: 2;
+    }
+}
+
+@media only screen and (min-width: 896px) {
+    main .recipe-cards {
+        --grid-cols: 3;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    main .recipe-cards {
+        --grid-cols: 4;
+    }
 }
 
 main .recipe-cards .card {
     --card-padding: 1.25rem;
     background-color: white;
     border-radius: 0.5rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     display: flex;
     flex-direction: column;
     max-height: fit-content;
@@ -143,7 +163,7 @@ main .recipe {
     max-width: 55vw;
 }
 
-main .recipe > *:not(:first-child) {
+main .recipe>*:not(:first-child) {
     margin-block-start: 2rem;
 }
 
