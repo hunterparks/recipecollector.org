@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "npx @11ty/eleventy --serve",
     "main": "eleventy.config.js",
+    "type": "module",
     "directories": {
         "doc": "docs"
     },
@@ -14,6 +15,6 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "@11ty/eleventy": "^2.0.1"
+        "@11ty/eleventy": "^3.0.0"
     }
 }
