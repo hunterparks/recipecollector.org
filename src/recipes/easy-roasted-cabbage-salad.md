@@ -6,7 +6,7 @@ slug: easy-roasted-cabbage-salad
 name: "Easy Roasted Cabbage Salad 🥗"
 author: hunter-parks
 date: 2025-03-08
-exerpt: "This simple to make dish comes
+excerpt: "This simple to make dish comes
 together in 25 minutes and you will be
 enjoying a deliciously caramelized
 cabbage side dish in no time!
