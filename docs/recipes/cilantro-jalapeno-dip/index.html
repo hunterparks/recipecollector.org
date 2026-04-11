@@ -45,6 +45,11 @@
         &ndash; Aug 02, 2022
     </p>
     <h2>Cilantro Jalapeño Dip </h2>
+    <label class="wake-lock-toggle" id="wakeLockToggle">
+        <input type="checkbox" role="switch" />
+        <span class="wake-lock-track"><span class="wake-lock-thumb"></span></span>
+        <span class="wake-lock-label">Keep screen on</span>
+    </label>
     <p class="excerpt">Cool, slightly spicy dip that is perfect with tortilla chips or tacos! </p>
     
         <img src="/assets/img/recipes/cilantro-jalapeno-dip.jpg" alt="cilantro-jalapeno-dip" />
@@ -101,6 +106,37 @@
 </div>
 
 </div>
+<script>
+(function () {
+    const wrapper = document.getElementById('wakeLockToggle');
+    if (!wrapper || !('wakeLock' in navigator)) {
+        if (wrapper) wrapper.hidden = true;
+        return;
+    }
+    const checkbox = wrapper.querySelector('input');
+    let lock = null;
+    async function acquire() {
+        lock = await navigator.wakeLock.request('screen');
+        lock.addEventListener('release', () => {
+            lock = null;
+            checkbox.checked = false;
+        });
+        checkbox.checked = true;
+    }
+    checkbox.addEventListener('change', async () => {
+        if (checkbox.checked) {
+            await acquire();
+        } else if (lock) {
+            await lock.release();
+        }
+    });
+    document.addEventListener('visibilitychange', async () => {
+        if (lock && document.visibilityState === 'visible') {
+            await acquire();
+        }
+    });
+})();
+</script>
 
 
         </main>

@@ -40,6 +40,11 @@
         &ndash; Mar 04, 2025
     </p>
     <h2>Potato and Green Bean Salad 🥔</h2>
+    <label class="wake-lock-toggle" id="wakeLockToggle">
+        <input type="checkbox" role="switch" />
+        <span class="wake-lock-track"><span class="wake-lock-thumb"></span></span>
+        <span class="wake-lock-label">Keep screen on</span>
+    </label>
     <p class="excerpt">This potato and green bean combo is an excellent choice for a different take on potato salad. With red-skinned potatoes, green beans, and a creamy dill dressing, it’s a vibrant and fresh side dish. </p>
     
         <img src="/assets/img/recipes/potato-and-green-bean-salad.jpg" alt="potato-and-green-bean-salad" />
@@ -96,6 +101,37 @@
 </div>
 
 </div>
+<script>
+(function () {
+    const wrapper = document.getElementById('wakeLockToggle');
+    if (!wrapper || !('wakeLock' in navigator)) {
+        if (wrapper) wrapper.hidden = true;
+        return;
+    }
+    const checkbox = wrapper.querySelector('input');
+    let lock = null;
+    async function acquire() {
+        lock = await navigator.wakeLock.request('screen');
+        lock.addEventListener('release', () => {
+            lock = null;
+            checkbox.checked = false;
+        });
+        checkbox.checked = true;
+    }
+    checkbox.addEventListener('change', async () => {
+        if (checkbox.checked) {
+            await acquire();
+        } else if (lock) {
+            await lock.release();
+        }
+    });
+    document.addEventListener('visibilitychange', async () => {
+        if (lock && document.visibilityState === 'visible') {
+            await acquire();
+        }
+    });
+})();
+</script>
 
 
         </main>

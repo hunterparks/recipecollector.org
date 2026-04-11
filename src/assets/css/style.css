@@ -1,6 +1,6 @@
 body {
     --theme-color: rgb(161, 133, 109);
-    --inline-padding: 2rem;
+    --inline-padding: 0.75rem;
     background: linear-gradient(180deg, white 0%, #efefef 25%);
     display: flex;
     flex-direction: column;
@@ -82,6 +82,12 @@ main .recipe-cards {
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
+@media only screen and (min-width: 896px) {
+    body {
+        --inline-padding: 2rem;
+    }
+}
+
 @media only screen and (min-width:512px) {
     main .recipe-cards {
         --grid-cols: 2;
@@ -158,9 +164,21 @@ main .recipe-cards .card .card-footer .footer-author-link .author-link-image {
 }
 
 main .recipe {
-    margin-block: 5rem;
+    margin-block: 2rem;
+    max-width: 100%;
+}
+
+main .recipe img {
+    display: block;
     margin-inline: auto;
-    max-width: 55vw;
+}
+
+@media only screen and (min-width: 896px) {
+    main .recipe {
+        margin-block: 5rem;
+        margin-inline: auto;
+        max-width: 55vw;
+    }
 }
 
 main .recipe>*:not(:first-child) {
@@ -179,6 +197,76 @@ main .recipe .byline .author {
 
 main .recipe .byline .category {
     color: var(--theme-color);
+}
+
+main .recipe .wake-lock-toggle {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: gray;
+}
+
+main .recipe .wake-lock-toggle input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+main .recipe .wake-lock-track {
+    background: #ccc;
+    border-radius: 2rem;
+    display: inline-block;
+    height: 1.4rem;
+    position: relative;
+    transition: background 0.2s;
+    width: 2.5rem;
+    flex-shrink: 0;
+}
+
+main .recipe .wake-lock-thumb {
+    background: white;
+    border-radius: 50%;
+    display: block;
+    height: 1rem;
+    left: 0.2rem;
+    position: absolute;
+    top: 0.2rem;
+    transition: transform 0.2s;
+    width: 1rem;
+}
+
+main .recipe .wake-lock-toggle input:checked ~ .wake-lock-track {
+    background: var(--theme-color);
+}
+
+main .recipe .wake-lock-toggle input:checked ~ .wake-lock-track .wake-lock-thumb {
+    transform: translateX(1.1rem);
+}
+
+@media only screen and (max-width: 895px) {
+    main .recipe .wake-lock-toggle {
+        font-size: 1rem;
+    }
+
+    main .recipe .wake-lock-track {
+        height: 1.9rem;
+        width: 3.4rem;
+    }
+
+    main .recipe .wake-lock-thumb {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    main .recipe .wake-lock-toggle input:checked ~ .wake-lock-track .wake-lock-thumb {
+        transform: translateX(1.5rem);
+    }
 }
 
 main .recipe .excerpt {

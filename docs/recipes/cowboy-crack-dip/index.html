@@ -40,6 +40,11 @@
         &ndash; Sep 29, 2025
     </p>
     <h2>Cowboy (Cheddar Ranch) Crack Dip 🤠</h2>
+    <label class="wake-lock-toggle" id="wakeLockToggle">
+        <input type="checkbox" role="switch" />
+        <span class="wake-lock-track"><span class="wake-lock-thumb"></span></span>
+        <span class="wake-lock-label">Keep screen on</span>
+    </label>
     <p class="excerpt">Mixed in minutes this Cowboy Crack Dip is cheesy, creamy, savory, and fresh — the perfect appetizer. This crack dip recipe is a classic appetizer ideal for your next party; game day and holiday get-togethers, a clear party favorite! </p>
     
         <img src="/assets/img/recipes/cowboy-crack-dip.png" alt="cowboy-crack-dip" />
@@ -96,6 +101,37 @@
 </div>
 
 </div>
+<script>
+(function () {
+    const wrapper = document.getElementById('wakeLockToggle');
+    if (!wrapper || !('wakeLock' in navigator)) {
+        if (wrapper) wrapper.hidden = true;
+        return;
+    }
+    const checkbox = wrapper.querySelector('input');
+    let lock = null;
+    async function acquire() {
+        lock = await navigator.wakeLock.request('screen');
+        lock.addEventListener('release', () => {
+            lock = null;
+            checkbox.checked = false;
+        });
+        checkbox.checked = true;
+    }
+    checkbox.addEventListener('change', async () => {
+        if (checkbox.checked) {
+            await acquire();
+        } else if (lock) {
+            await lock.release();
+        }
+    });
+    document.addEventListener('visibilitychange', async () => {
+        if (lock && document.visibilityState === 'visible') {
+            await acquire();
+        }
+    });
+})();
+</script>
 
 
         </main>

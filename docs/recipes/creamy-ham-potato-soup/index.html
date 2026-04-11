@@ -40,6 +40,11 @@
         &ndash; Sep 29, 2025
     </p>
     <h2>Creamy Ham and Potato Soup 🍜</h2>
+    <label class="wake-lock-toggle" id="wakeLockToggle">
+        <input type="checkbox" role="switch" />
+        <span class="wake-lock-track"><span class="wake-lock-thumb"></span></span>
+        <span class="wake-lock-label">Keep screen on</span>
+    </label>
     <p class="excerpt">This is the most delicious recipe to use your leftover ham. It&#39;s cheesy, thick and creamy but also seriously easy to make and ready in under an hour- this is the ultimate comfort food! </p>
     
         <img src="/assets/img/recipes/creamy-ham-potato-soup.jpg" alt="creamy-ham-potato-soup" />
@@ -86,9 +91,47 @@
     </div>
     
     
+    <div class="item">
+        <p>Next</p>
+        <a href="/recipes/homemade-liquid-laundry-detergent/">
+            Homemade Liquid Laundry Detergent 🧼
+        </a>
+    </div>
+    
 </div>
 
 </div>
+<script>
+(function () {
+    const wrapper = document.getElementById('wakeLockToggle');
+    if (!wrapper || !('wakeLock' in navigator)) {
+        if (wrapper) wrapper.hidden = true;
+        return;
+    }
+    const checkbox = wrapper.querySelector('input');
+    let lock = null;
+    async function acquire() {
+        lock = await navigator.wakeLock.request('screen');
+        lock.addEventListener('release', () => {
+            lock = null;
+            checkbox.checked = false;
+        });
+        checkbox.checked = true;
+    }
+    checkbox.addEventListener('change', async () => {
+        if (checkbox.checked) {
+            await acquire();
+        } else if (lock) {
+            await lock.release();
+        }
+    });
+    document.addEventListener('visibilitychange', async () => {
+        if (lock && document.visibilityState === 'visible') {
+            await acquire();
+        }
+    });
+})();
+</script>
 
 
         </main>
