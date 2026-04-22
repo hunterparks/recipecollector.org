@@ -48,32 +48,45 @@ header nav button {
     cursor: pointer;
 }
 
-/* FIXME: Positioning hell
-header nav .popover-container {
-    isolation: isolate;
+header nav .tags-dropdown {
     position: relative;
 }
 
-header nav .popover-container #tagslist-popover {
-    position: absolute;
-    top: 1rem;
-    right: 0;
+header nav .tags-dropdown summary {
+    cursor: pointer;
+    list-style: none;
 }
 
-header nav .popover-container #tagslist-popover div {
+header nav .tags-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+header nav .tags-dropdown .tags-dropdown-menu {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: rgba(149, 157, 165, 0.25) 0px 8px 24px;
     display: flex;
     flex-direction: column;
+    left: 0;
+    padding: 0.25rem 0;
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    white-space: nowrap;
+    z-index: 100;
 }
 
-header nav .popover-container #tagslist-popover div > * {
-    font-weight: 600;
-    padding: 0.5rem 0.75rem;
+header nav .tags-dropdown .tags-dropdown-menu a {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.55rem 1rem;
 }
 
-header nav .popover-container #tagslist-popover div > *:hover {
-    color: gray;
+header nav .tags-dropdown .tags-dropdown-menu a:hover {
+    background: #f5f0eb;
+    color: var(--theme-color);
 }
-*/
 
 main .recipe-cards {
     --grid-cols: 1;
@@ -316,4 +329,56 @@ footer {
     font-size: 0.85rem;
     justify-content: space-between;
     padding-block: 0.5rem;
+}
+
+/* Search */
+.search-container {
+    position: relative;
+}
+
+#search-input {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    outline: none;
+    padding: 0.4rem 0.85rem;
+    width: 11rem;
+    transition: border-color 0.15s, width 0.2s;
+}
+
+#search-input:focus {
+    border-color: var(--theme-color);
+    width: 16rem;
+}
+
+.search-results {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: rgba(149, 157, 165, 0.25) 0px 8px 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem 0;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.35rem);
+    width: 20rem;
+    z-index: 100;
+}
+
+.search-results li a {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.55rem 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-results li a:hover,
+.search-results li.focused a {
+    background: #f5f0eb;
+    color: var(--theme-color);
 }

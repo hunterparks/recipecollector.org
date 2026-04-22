@@ -1,0 +1,9 @@
+---
+permalink: /search.json
+eleventyExcludeFromCollections: true
+---
+[
+  {%- for recipe in collections.recipe -%}
+  {"name":{{ recipe.data.name | dump | safe }},"url":{{ recipe.url | dump | safe }},"excerpt":{{ recipe.data.excerpt | dump | safe }}}{% if not loop.last %},{% endif %}
+  {%- endfor -%}
+]

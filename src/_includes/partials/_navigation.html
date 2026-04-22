@@ -1,16 +1,16 @@
 <nav>
     <a href="/">Home</a>
     <a href="/about">About</a>
-    <!-- FIXME: Have dropdown of tags
-    <div class="popover-container">
-        <button popovertarget="tagslist-popover">Testing</button>
-        <div popover id="tagslist-popover">
-            <div>
-                {%- for item in collections.tagsList -%}
-                <a href="#">{{ item }}</a>
-                {%- endfor -%}
-            </div>
+    <details class="tags-dropdown">
+        <summary>Tags</summary>
+        <div class="tags-dropdown-menu">
+            {%- for item in collections.tagsList | sort -%}
+            <a href="/tags/{{ item | slugify }}/">{{ item | capitalize }}</a>
+            {%- endfor -%}
         </div>
-    </div>
-    -->
+    </details>
 </nav>
+<div class="search-container">
+    <input type="search" id="search-input" placeholder="Search recipes…" autocomplete="off" aria-label="Search recipes" aria-controls="search-results" aria-autocomplete="list" />
+    <ul id="search-results" class="search-results" role="listbox" hidden></ul>
+</div>
