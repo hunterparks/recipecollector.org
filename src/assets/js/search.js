@@ -1,4 +1,14 @@
 (function () {
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const header = document.querySelector('header');
+    if (navToggle && header) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = header.classList.toggle('nav-open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+    }
+
     const input = document.getElementById('search-input');
     const results = document.getElementById('search-results');
     if (!input || !results) return;

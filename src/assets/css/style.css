@@ -26,6 +26,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding-block: 2rem 3rem;
+    gap: 0.6rem;
 }
 
 header nav {
@@ -46,6 +47,80 @@ header nav button {
     background-color: inherit;
     border: none;
     cursor: pointer;
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+}
+
+.nav-toggle span {
+    background: currentColor;
+    border-radius: 2px;
+    display: block;
+    height: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+    width: 22px;
+}
+
+@media (max-width: 640px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    header {
+        flex-wrap: wrap;
+        padding-block: 1rem 1.5rem;
+    }
+
+    header nav {
+        display: none;
+        order: 4;
+        width: 100%;
+    }
+
+    header .search-container {
+        display: flex;
+        order: 3;
+        padding-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    header.nav-open nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    header.nav-open nav > * {
+        padding: 0.6rem 0.25rem;
+    }
+
+    header nav .tags-dropdown .tags-dropdown-menu {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0 0 0 1rem;
+        position: static;
+        width: 100%;
+    }
+
+    header.nav-open .nav-toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    header.nav-open .nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    header.nav-open .nav-toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
 }
 
 header nav .tags-dropdown {
@@ -381,4 +456,17 @@ footer {
 .search-results li.focused a {
     background: #f5f0eb;
     color: var(--theme-color);
+}
+
+@media (max-width: 640px) {
+    #search-input,
+    #search-input:focus {
+        width: 100%;
+    }
+
+    .search-results {
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
 }
