@@ -251,6 +251,52 @@ main .recipe-cards .card .card-footer .footer-author-link .author-link-image {
     border-radius: 50%;
 }
 
+/* Featured card styles */
+main .recipe-cards .card.featured {
+    isolation: isolate;
+    position: relative;
+}
+
+main .recipe-cards .card.featured > a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+main .recipe-cards .card.featured .card-image-wrapper {
+    height: 100%;
+    inset: 0;
+    padding-bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+main .recipe-cards .card.featured .card-image-wrapper::after {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 55%);
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: 11;
+}
+
+main .recipe-cards .card.featured .card-body {
+    position: relative;
+    z-index: 20;
+}
+
+main .recipe-cards .card.featured .body-name {
+    color: white;
+}
+
+main .recipe-cards .card.featured .body-excerpt {
+    display: none;
+}
+
+main .recipe-cards .card.featured .card-footer {
+    display: none;
+}
+
 main .recipe {
     margin-block: 2rem;
     max-width: 100%;
