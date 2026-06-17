@@ -17,7 +17,7 @@ ingredients:
     - "2 tablespoons - Morton Tender Quick salt"
     - "½ teaspoon - Garlic powder"
     - "1 tablespoon - Mustard seeds"
-    - "3 tablespoons - Black pepper, coarse"
+    - "2 - 3 teaspoons - Black pepper, coarse"
     - "1 tablespoon - liquid smoke"
     - "1 tablespoon - sugar"
     - "2 pounds - Ground beef, 80-85% lean"
