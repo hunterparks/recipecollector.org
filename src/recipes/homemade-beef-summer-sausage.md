@@ -21,6 +21,17 @@ ingredients:
     - "1 tablespoon - liquid smoke"
     - "1 tablespoon - sugar"
     - "2 pounds - Ground beef, 80-85% lean"
+    - === Dill Flavor Alternative ===
+    - "2 tablespoons - Morton Tender Quick salt"
+    - "1 teaspoon - Garlic powder"
+    - "1 tablespoon - Mustard seeds"
+    - "2 teaspoons - Black pepper, coarse"
+    - "⅓ teaspoons - Onion powder
+    - "2 teaspoons - Dill weed, dried"
+    - "1 teaspoon - Dill seed"
+    - "2 teaspoons - liquid smoke"
+    - "1 tablespoon - sugar"
+    - "2 pounds - Ground beef, 80-85% lean"
 directions:
     - "Add everything to a large bowl (or stand mixer) and mix really well."
     - "Divide into 2 portions and shape into logs, about 6–7 inches long."
