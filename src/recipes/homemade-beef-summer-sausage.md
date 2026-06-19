@@ -26,7 +26,7 @@ ingredients:
     - "1 teaspoon - Garlic powder"
     - "1 tablespoon - Mustard seeds"
     - "2 teaspoons - Black pepper, coarse"
-    - "⅓ teaspoons - Onion powder
+    - "⅓ teaspoons - Onion powder"
     - "2 teaspoons - Dill weed, dried"
     - "1 teaspoon - Dill seed"
     - "2 teaspoons - liquid smoke"
