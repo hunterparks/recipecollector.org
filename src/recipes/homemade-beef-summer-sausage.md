@@ -21,7 +21,7 @@ ingredients:
     - "1 tablespoon - liquid smoke"
     - "1 tablespoon - sugar"
     - "2 pounds - Ground beef, 80-85% lean"
-    - === Dill Flavor Alternative ===
+    - "=== Dill Flavor Alternative ==="
     - "2 tablespoons - Morton Tender Quick salt"
     - "1 teaspoon - Garlic powder"
     - "1 tablespoon - Mustard seeds"
