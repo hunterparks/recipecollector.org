@@ -5,7 +5,7 @@ tags:
 slug: sticky-honolulu-chicken
 name: "Sticky Honolulu Chicken 🍗"
 author: hunter-parks
-date: 2026-06-12
+date: 2026-06-26
 excerpt: ""
 featured: false
 image: ""
@@ -40,5 +40,5 @@ directions:
       with rice. Watch our step-by-step video below to see how
       to make this Sticky Honolulu chicken recipe."
 notes: ""
-source: "https://www.taste.com.au/recipes/sticky-honolulu-chicken-recipe/ayl2nh83"
+source: "https://www.taste.com.au/recipes/sticky-honolulu-chicken-recipe/ayl2nh83?nk=3a919b5f8295a69e7eed46ebfcf8ff7c-1766320551"
 ---
